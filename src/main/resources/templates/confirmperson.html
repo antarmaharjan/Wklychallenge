@@ -20,7 +20,7 @@
         </div>
         <nav>
             <ul>
-                <li class="current"><a href="index.html">Home</a></li>
+                <li class="current"><a href="/">Home</a></li>
                 <li><a href="/generateresume">Skip to resume</a></li>
             </ul>
         </nav>
@@ -42,14 +42,14 @@
         <div class="panel-body">
             <p th:inline="text">Name: [[${newPerson.name}]].</p>
             <p th:inline="text">Email: [[${newPerson.email}]].</p>
-            <a class="btn btn-primary btn-xl" href="/addeducation">Right,that's me!</a><br>
+            <a class="btn btn-primary btn-xl" href="/addeducation">If yes,Continue!</a><br>
             <a th:href="@{/index/update/{id}(id=${newPerson.id})}">Update</a>
         </div>
     </div>
     <!--<a class="btn btn-primary btn-xl" href="/addeducation">Right,that's me!</a>-->
 </section>
-    <footer>
-    <p>Resume Buildiing App, Copyright &copy; 2017</p>
+<footer th:align="center">
+    <p>Resume Buildiing App, Ratna &copy; 2017</p>
 </footer>
 
 

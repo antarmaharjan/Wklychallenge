@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <title>Resume Building App!</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1><span class="highlight" th:align="center">Resume Buildiing App</span></h1>
+        </div>
+    </div>
+</header>
+<div class="container" align="center">
+    <h2>Enter user name and password to proceed</h2>
+
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+
+    <form th:action="@{/login}"
+          th:object="${newPerson}" method="post">
+
+        <div class="form-group">
+            <h3>User Name:<input type="text" class="form-control" placeholder="Enter user name" name="username"></h3>
+        </div>
+        <div class="form-group">
+            <h3>Password:<input type="password" class="form-control" placeholder="Enter password" name="password"></h3>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" name="remember"> Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-default" value="Sign In">Sign in</button>
+
+    </form></div>
+
+
+</div>
+<br>
+
+
+
+
+
+<br>
+<footer th:align="center">
+    <p>Resume Buildiing App, Ratna &copy; 2017</p>
+</footer>
+
+</body>
+</html>

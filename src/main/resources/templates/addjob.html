@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width">
     <title>Resume Building App</title>
@@ -38,11 +39,10 @@
             Position: <input required th:type="text" th:field="*{position}"/><br />
             <span th:if="${#fields.hasErrors('position')}"
                   th:errors="*{position}"></span><br />
-            Start Date(MM/YYYY): <input required type="date" th:field="*{startDate}"/><br/>
-            <span th:if="${#fields.hasErrors('startDate')}"th:error="*{startDate}">
-                <small class="form-error" data-errors-when="valueMissing">Error.</small>Date format error</span><br/>
-            End Date(MM/YYYY)(Write 'Cont' if still working): <input required type="date" th:field="*{endDate}"/> <br />
-            <span th:if="${#fields.hasErrors('endDate')}"th:errors="*{endDate}">Date format error</span><br />
+            Start Date: <input required type="date" th:field="*{startDate}"/><br/>
+            <span th:if="${#fields.hasErrors('startDate')}"th:error="*{startDate}">Date format errors</span><br/>
+            End Date: <input  type="date" th:field="*{endDate}"/><br>(Skip End Date if Still working)
+            <span th:if="${#fields.hasErrors('endDate')}"th:errors="*{endDate}">Date format error</span><br/>
             Duty 1: <input required th:type="text" th:field="*{duty1}"/><br />
             <span th:if="${#fields.hasErrors('duty1')}"
                   th:errors="*{duty1}"></span><br />
@@ -59,8 +59,8 @@
     </form>
 
 </section>
-<footer>
-    <p>Resume Buildiing App, Copyright &copy; 2017</p>
+<footer th:align="center">
+    <p>Resume Buildiing App, Ratna &copy; 2017</p>
 </footer>
 
 

@@ -15,7 +15,7 @@
         </div>
         <nav>
             <ul>
-                <li class="current"><a href="index.html">Home</a></li>
+                <li class="current"><a href="/">Home</a></li>
                 <li><a href="/generateresume">Skip to resume</a></li>
             </ul>
         </nav>
@@ -40,21 +40,20 @@
                   th:errors="*{school}"></span><br />
             Degree: <input required th:type="text" th:field="*{degree}"/><br />
             <span th:if="${#fields.hasErrors('degree')}"
-                  th:errors="*{degree}"></span><br />
-            <div>
-                <label>Graduation Year:</label>
-                <input required type="number" name="gradyear"  th:field="*{gradyear}"/><br />
+                  th:errors="*{degree}"></span><br/>
+            Graduation Year:<input required type="number" value="2000" name="gradyear"  th:field="*{gradyear}"/><br/>
                 <span th:if="${#fields.hasErrors('gradyear')}" th:error="*{gradyear}"></span><br/>
-            </div>
+
         </ul>
 
         <input type="submit" value="Add Education"/> <input type="reset" value="Clear Form"/>
 
     </form>
 </section>
-<footer>
-    <p>Resume Buildiing App, Copyright &copy; 2017</p>
+<footer th:align="center">
+    <p>Resume Buildiing App, Ratna &copy; 2017</p>
 </footer>
+
 
 
 </body>

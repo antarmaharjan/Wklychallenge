@@ -24,7 +24,7 @@
             <ul>
                 <li class="current"><a href="/">Home</a></li>
                 <li><a href="/generateresume">Skip to resume</a></li>
-                <li><a th:href="@{/displayall/{id} (id=${myPerson.id})}">view Resume</a></li>
+                <!--<li><a th:href="@{/displayall/{id} (id=${myPerson.id})}">view Resume</a></li>-->
             </ul>
         </nav>
     </div>
@@ -32,21 +32,21 @@
 <section id="showcase">
     <div class="container" ></div>
 
-<h3>Resume App presents</h3>
+<h2>Resume App presents</h2>
 <h3 th:inline="text">[[${myPerson.name}]]</h3>
 <h4 th:inline="text">[[${myPerson.email}]]</h4>
 
 <!--<a th:href="@{/index/{id} (id=${myPerson.id})}">Update</a>-->
 <!--<a th:href="@{/delete/{id} (id=${myPerson.id})}">Delete</a>-->
 
-<h3>Education:</h3>
+<h2>Education:</h2>
 <div th:each="i:${myEducation}">
     <p th:inline="text"><strong>[[${i.degree}]]</strong>, </p>
     <p th:inline="text">[[${i.school}]], [[${i.gradyear}]] </p>
 </div>
     <p><a href="/addeducation">Add more education</a></p>
 <hr>
-<h3>Work Experience:</h3>
+<h2>Work Experience:</h2>
 <div th:each="i:${myjob}">
     <p th:inline="text"><strong>[[${i.position}]]</strong> </p>
     <p th:inline="text">[[${i.employer}]], [[${i.startDate}]] - [[${i.endDate}]]</p>
@@ -56,14 +56,17 @@
 <p><a href="/addjob">Add another job</a></p>
     <!--<a th:href="@{/addjob/update/{id}(id=${aJob.id})}">Update</a><br>-->
 <hr>
-<br>
-<h3>Skills:</h3>
+<h2>Skills:</h2>
 <div th:each="i:${mySkills}">
     <p th:inline="text">Skill: [[${i.skill}]]; [[${i.rating}]]</p>
 </div>
 <p><a href="/addskill">Add more skills</a></p>
     <!--<a th:href="@{/addskill/update/{id}(id=${aSkill.id})}">Update</a><br>-->
 </section>
+<footer th:align="center">
+    <p>Resume Buildiing App, Ratna &copy; 2017</p>
+</footer>
+
 
 </body>
 </html>

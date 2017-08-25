@@ -45,9 +45,10 @@
     <p th:inline="text">Duty 1: [[${aJob.duty1}]].</p>
     <p th:inline="text">Duty 2: [[${aJob.duty2}]].</p>
     <a th:href="@{/addjob/update/{id}(id=${aJob.id})}">Update</a><br>
+    <a class="btn btn-primary btn-xl" href="/addskill">Add  skills!</a><h5>OR</h5>
     <a class="btn btn-primary btn-xl " href="/addjob">Add more job!</a>
-    <h5>OR</h5>
-    <a class="btn btn-primary btn-xl" href="/addskill">Add  skills!</a>
+
+
 
     </div>
     </div>
@@ -55,8 +56,8 @@
 
 
 </section>
-<footer>
-    <p>Resume Buildiing App, Copyright &copy; 2017</p>
+<footer th:align="center">
+    <p>Resume Buildiing App, Ratna &copy; 2017</p>
 </footer>
 </body>
 </html>

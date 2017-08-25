@@ -41,17 +41,38 @@
         <p th:inline="text">Degree: [[${anEducation.degree}]].</p>
         <p th:inline="text">Graduated: [[${anEducation.gradyear}]].</p>
         <!--<a th:href="@{/addeducation/delete/{id}(id=${anEducation.id})}">Delete</a>-->
-        <a th:href="@{/addeducation/update/{id}(id=${anEducation.id})}">Update</a><br>
-        <a class="btn btn-primary btn-xl" href="/addeducation">Add more education</a><p>OR</p>
-        <a class="btn btn-primary btn-xl" href="/addjob">Add work experience!</a>
-        <!--<input type="submit" value="Save"/><input type="reset" value="Clear Form"/>-->
+        <!------------------------------------------------------------------------------------->
+        <div class="form-footer">
+            <a href="/addeducation"  th:if="${numberOfEdu<10}"
+               class="active" class="btn btn-primay">Add more Eduation</button> </a>
+
+        </div>
+        <div class="form-footer">
+
+            <a button type= "button" href="/addjob" class="btn btn-primary" >Add Work Experience</button></a>
+        </div>
+
+        <div class="form-footer">
+            <a th:href="@{/updateeducation/{id}(id=${anEducation.id})}" th:if="${numberOfEdu>0}"
+               class="active" class="btn btn-primary" >Edit</a><p>OR</p>
+        </div>
+        <div class="form-footer">
+            <a th:href="@{/deleteeducation/{id}(id=${anEducation.id})}" th:if="${numberOfEdu>1}"
+               class="active" class="btn btn-primary" >Delete</a>
+        </div>
+    <!--------------------------------------------------------------------------------------------------->
+        <!--<a th:href="@{/addeducation/update/{id}(id=${anEducation.id})}">Update</a><br>-->
+        <!--<a class="btn btn-primary btn-xl" href="/addjob">Add work experience!</a><p>OR</p>-->
+        <!--<a class="btn btn-primary btn-xl" href="/addeducation">Add more education</a>-->
+
     </div>
 </div>
 <!--<a class="btn btn-primary btn-xl" href="/addeducation">Add another educational infos</a>-->
 <!--<a class="btn btn-primary btn-xl" href="/addjob">Add work experience!</a>-->
 </section>
-<footer>
-    <p>Resume Building App, Ratna &copy; 2017</p>
+<footer th:align="center">
+    <p>Resume Buildiing App, Ratna &copy; 2017</p>
 </footer>
+
 </body>
 </html>

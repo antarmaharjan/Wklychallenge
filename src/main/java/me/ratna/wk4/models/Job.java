@@ -18,9 +18,9 @@ public class Job {
     @NotNull
     private String position;
     @NotNull
-    @DateTimeFormat(pattern = "MMM,yyyy")
+    @DateTimeFormat(pattern = "mm/yyyy")
     private String startDate;
-    @DateTimeFormat(pattern = "MMM,yyyy")
+    @DateTimeFormat(pattern = "mm/yyyy")
     private String endDate;
     private String duty1;
     private String duty2;

@@ -32,6 +32,10 @@ public class HomeController {
     @Autowired
     SkillRepository skillRepository;
 
+    @RequestMapping("/login")
+    public String logon(){
+        return"login";
+    }
     @GetMapping("/")
     public String index(Model toSend){
         toSend.addAttribute("newPerson", new Person());
@@ -53,11 +57,13 @@ public class HomeController {
         return "addeducation";
     }
     @PostMapping("/addeducation")
-    public String confirmEducationAndAddMore(@Valid @ModelAttribute("anEducation") Education anEducation,Model toSend, BindingResult result){
+    public String confirmEducation(@Valid @ModelAttribute("anEducation") Education anEducation,Model toSend, BindingResult result){
         if(result.hasErrors()){
             return "addeducation";
         }
         educationRepository.save(anEducation);
+        //additional line
+        toSend.addAttribute("numberOfEdu",educationRepository.count());
         return "confirmeducation";
     }
     @GetMapping("/addjob")
@@ -121,34 +127,20 @@ public class HomeController {
         model.addAttribute("newPerson",person);
         return "index";
     }
-    @GetMapping("/confirmeducation/update/{id}")
-    public String updateeducation (@PathVariable ("id") long id,Model model){
-        Education education =educationRepository.findOne(id);
-        model.addAttribute("newEducation",education);
+//    ------------------------------------------------------------------------------------
+    @GetMapping("/updateeducation/{id}")
+    public String updateEducation(@PathVariable("id") long id, Model model){
+        model.addAttribute("anEducation", educationRepository.findOne(id));
         return "addeducation";
     }
-    @GetMapping("/addeducation/delete/{id}")
-    public String delete1(@PathVariable("id") long id){
+    @GetMapping("/deleteeducation/{id}")
+    public String deleteEducation(@PathVariable("id") long id){
         educationRepository.delete(id);
-        return "redirect:/addjob";
+        return "redirect:/generateresume";
     }
-//    @RequestMapping("/update/{id}")
-//    public String update(@PathVariable("id") long id,Model model){
-//        Person person = personRepository.findOne(id);
-//        model.addAttribute("newPerson", person);
-//        return "addskill";
-//    }
 
-//    @GetMapping("/delete/{id}")
-//    public String delete(@PathVariable("id") long id){
-//        personRepository.delete(id);
-//        return "addskill";
-//    }
-//    @GetMapping("/update/{id}")
-//    public String update(@PathVariable("id") long id,Model model){
-//        Person person = personRepository.findOne(id);
-//        model.addAttribute("newPerson", person);
-//        return "addskill";
-//    }
+//    -----------------------------------------------------------------------------------------
+
+
 
 }

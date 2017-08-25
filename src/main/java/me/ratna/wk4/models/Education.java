@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -21,7 +22,6 @@ public class Education {
     private String degree;
     @NotNull
     @Range(min = 1950,max = 2099)
-    //@DateTimeFormat(pattern = "yyyy")
     private long gradyear;
 
     public long getGradyear() {

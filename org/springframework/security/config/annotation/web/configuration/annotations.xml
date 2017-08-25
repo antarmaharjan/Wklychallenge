@@ -1,0 +1,5 @@
+<root>
+    <item name='org.springframework.security.config.annotation.web.configuration.EnableWebSecurity'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
